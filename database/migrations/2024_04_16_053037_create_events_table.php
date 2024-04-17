@@ -12,6 +12,7 @@ class CreateEventsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
+            $table->string('location')->default('Campus');
             $table->dateTime('event_time');
             $table->string('image')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');

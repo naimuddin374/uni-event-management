@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use File;
 
 class EventController extends Controller
 {
     public function index()
     {
-        $events = Event::where('status', 'active')->get();
+        $events = Event::orderBy('id', 'DESC')->where('status', 'active')->get();
         return view('admin.events.index', compact('events'));
     }
 
@@ -41,6 +43,26 @@ class EventController extends Controller
         return view('admin.events.edit', compact('event'));  // Return the edit view with the event data
     }
 
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required',
+            'event_time' => 'required|date',
+            'image' => 'image|mimes:png,jpg,jpeg|max:5000',
+            'status' => 'required|in:active,inactive',
+        ]);
+        
+        if ($request->hasFile('image')) {
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('img/events'), $imageName);
+            $data['image'] = 'img/events/'.$imageName;
+        }
+        Event::create($data);
+        return redirect('/admin/events');
+    }
+
+
     /**
      * Update the specified event in storage.
      *
@@ -50,44 +72,33 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required',
-            'event_time' => 'required|date',
-            'status' => 'required|in:active,inactive',
-        ]);  // Validate input data
-
-        $event = Event::findOrFail($id);  // Find the event or fail with a 404 error
-
-        // Update event with new data
-        $event->update([
-            'title' => $request->title,
-            'description' => $request->description,
-            'event_time' => $request->event_time,
-            'status' => $request->status,
-        ]);
-
-        return redirect()->route('admin.events.index')  // Redirect to the events index page
-            ->with('success', 'Event updated successfully');  // Optional: flash a success message to the session
-    }
-
-    public function store(Request $request)
-    {
+        // Validate input data, excluding image for initial validation
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required',
             'event_time' => 'required|date',
-            'image' => 'sometimes|file|image|max:5000',
             'status' => 'required|in:active,inactive',
+            'image' => 'image|mimes:png,jpg,jpeg|max:5000', // Validate image separately
         ]);
-        
+
+        $event = Event::findOrFail($id); // Find the event or fail with a 404 error
+
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('public/events');
+            // Delete the old image if it exists
+            if ($event->image) {
+                File::delete(public_path($event->image));
+            }
+
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('img/events'), $imageName);
+            $data['image'] = 'img/events/'.$imageName;
         }
 
-        Event::create($data);
+        // Update event with new data
+        $event->update($data);
 
-        return redirect('/admin/events');
+        return redirect()->route('admin.events.index') // Redirect to the events index page
+        ->with('success', 'Event updated successfully'); // Optional: flash a success message to the session
     }
 
     /**
@@ -99,6 +110,11 @@ class EventController extends Controller
     public function destroy($id)
     {
         $event = Event::findOrFail($id);  // Find the event or throw a 404 error if not found
+        
+        if ($event->image) {
+            File::delete(public_path($event->image));
+        }
+        
         $event->delete();  // Delete the event
 
         return redirect()->route('admin.events.index')  // Redirect to the list of events
