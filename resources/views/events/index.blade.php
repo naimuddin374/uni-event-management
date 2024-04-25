@@ -37,44 +37,15 @@
         </div>
       </div>
       @endforeach
-      <div class="col-lg-4 col-md-6">
-        <div class="single__program">
-          <div class="program_thumb">
-            <img src="img/program/2.png" alt="">
-          </div>
-          <div class="program__content">
-            <span>Agriculture</span>
-            <h4>Mechanical engneering</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-              do eiusmod tempor incididunt ut</p>
-            <a href="#" class="boxed-btn5">Show Details</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="single__program">
-          <div class="program_thumb">
-            <img src="img/program/3.png" alt="">
-          </div>
-          <div class="program__content">
-            <span>Agriculture</span>
-            <h4>Bio engneering</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-              do eiusmod tempor incididunt ut</p>
-            <a href="#" class="boxed-btn5">Show Details</a>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- <div class="row">
+      <!-- <div class="row">
       <div class="col-lg-12">
         <div class="course_all_btn text-center">
           <a href="Courses.html" class="boxed-btn4">View All course</a>
         </div>
       </div>
     </div> -->
+    </div>
   </div>
-</div>
-<!-- popular_program_area_end -->
-@endsection
+  <!-- popular_program_area_end -->
+  @endsection

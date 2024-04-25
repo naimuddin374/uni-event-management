@@ -8,7 +8,10 @@
             <div
               class="header_top_wrap d-flex justify-content-between align-items-center">
               <div class="text_wrap">
-                <p><span>+880166 253 232</span> <span>info@domain.com</span></p>
+                <p>
+                  <!-- <span>+880155 253 232</span> -->
+                  <span>fiucec.club@gmail.com</span>
+                </p>
               </div>
               <div class="text_wrap">
                 <p>
@@ -35,7 +38,7 @@
               <div class="header_left">
                 <div class="logo">
                   <a href="{{ url('/') }}">
-                    <img src="{{ asset('img/logo.png') }}" alt="">
+                    <img src="{{ asset('img/cec.jpg') }}" alt="" width="100">
                   </a>
                 </div>
               </div>
@@ -45,9 +48,14 @@
                     <ul id="navigation">
                       <li><a href="{{ url('/') }}">home</a></li>
                       <li><a href="{{ url('/events') }}">Events</a></li>
+                      <li><a href="{{ url('/about') }}">About</a></li>
+                      <li><a href="{{ url('/mission') }}">mission</a></li>
+                      <li><a href="{{ url('/vision') }}">Vision</a></li>
                       <li><a href="{{ url('/contact') }}">Contact</a></li>
                       @if(Auth::check())
                       <li><a href="{{ url('/admin/events') }}">Manage Event</a>
+                      </li>
+                      <li><a href="{{ url('/admin/slides') }}">Manage Slider</a>
                       </li>
                       @endif
                     </ul>

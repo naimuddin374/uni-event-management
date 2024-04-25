@@ -23,11 +23,12 @@
               <div class="socail_links">
                 <ul>
                   <li>
-                    <a href="#">
+                    <a href="https://www.facebook.com/fiucec.club/"
+                      target="_blank">
                       <i class="ti-facebook"></i>
                     </a>
                   </li>
-                  <li>
+                  <!-- <li>
                     <a href="#">
                       <i class="fa fa-twitter"></i>
                     </a>
@@ -41,7 +42,7 @@
                     <a href="#">
                       <i class="fa fa-linkedin"></i>
                     </a>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
 
@@ -56,39 +57,30 @@
               About Us
             </h3>
             <ul>
-              <li><a href="#">Online Learning</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Careers</a></li>
-              <li><a href="#">Press Center</a></li>
-              <li><a href="#">Become an Instructor</a></li>
+              <li><a href="{{url('/')}}">Home</a></li>
+              <li><a href="{{url('/about')}}">About Us</a></li>
             </ul>
           </div>
         </div>
         <div class="col-xl-3 col-md-6 col-lg-3">
           <div class="footer_widget">
             <h3 class="footer_title">
-              Campus
+              Our Events
             </h3>
             <ul>
-              <li><a href="#">Our Plans</a></li>
-              <li><a href="#">Free Trial</a></li>
-              <li><a href="#">Academic Solutions</a></li>
-              <li><a href="#">Business Solutions</a></li>
-              <li><a href="#">Government Solutions</a></li>
+              <li><a href="{{url('/events')}}">Recent Events</a></li>
+              <li><a href="{{url('/')}}">News</a></li>
             </ul>
           </div>
         </div>
         <div class="col-xl-3 col-md-6 col-lg-3">
           <div class="footer_widget">
             <h3 class="footer_title">
-              Study
+              Mission & Vision
             </h3>
             <ul>
-              <li><a href="#">Admissions Policy</a></li>
-              <li><a href="#">Getting Started</a></li>
-              <li><a href="#">Visa Information</a></li>
-              <li><a href="#">Tuition Calculator</a></li>
-              <li><a href="#">Request Information</a></li>
+              <li><a href="{{url('/mission')}}">Mission</a></li>
+              <li><a href="{{url('/vision')}}">Vision</a></li>
             </ul>
           </div>
         </div>
@@ -98,11 +90,9 @@
               Support
             </h3>
             <ul>
-              <li><a href="#">Support</a></li>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">System Requirements</a></li>
-              <li><a href="#">Register Activation Key</a></li>
-              <li><a href="#">Site feedback</a></li>
+              <li><a href="{{url('/contact')}}">Contact Us</a></li>
+              <li><a href="https://www.facebook.com/fiucec.club/"
+                  target="_blank">Site feedback</a></li>
             </ul>
           </div>
         </div>
@@ -119,9 +109,10 @@
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;<script>
             document.write(new Date().getFullYear());
-            </script> All rights reserved | This template is made with <i
+            </script> All rights reserved | This website develop with <i
               class="ti-heart" aria-hidden="true"></i> by <a
-              href="https://colorlib.com" target="_blank">Colorlib</a>
+              href="https://www.fiu.edu.bd" target="_blank"
+              style="color:#2d4a7c">FIU</a>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </p>
           </p>

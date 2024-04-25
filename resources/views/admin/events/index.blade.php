@@ -2,14 +2,17 @@
 
 @section('content')
 <div class="container">
-  <h1>Events List</h1>
-  <a href="{{ route('admin.events.create') }}" class="btn btn-primary mb-3">Add
-    New Event</a>
+  <div class="py-4 d-flex align-items-center justify-content-between">
+    <h1>Events List</h1>
+    <a href="{{ route('admin.events.create') }}"
+      class="btn btn-primary mb-3">Add
+      New Event</a>
+  </div>
   <table class="table">
     <thead>
       <tr>
-        <th>Image</th>
         <th>ID</th>
+        <th>Image</th>
         <th>Title</th>
         <th>Description</th>
         <th>Event Date</th>
@@ -18,26 +21,26 @@
       </tr>
     </thead>
     <tbody>
-      @foreach($events as $event)
+      @foreach($events as $element)
       <tr>
+        <td>#{{ $element->id }}</td>
         <td>
-          @if($event->image)
-          <img src="{{ asset($event->image) }}" alt='event' height="80"
+          @if($element->image)
+          <img src="{{ asset($element->image) }}" alt='event' height="80"
             weight="80" />
           @else
           <img src="{{ asset('img/placeholder.png') }}" alt='event' height="80"
             weight="80" />
           @endif
         </td>
-        <td>{{ $event->id }}</td>
-        <td>{{ $event->title }}</td>
-        <td>{{ $event->description }}</td>
-        <td>{{ $event->event_time }}</td>
-        <td>{{ $event->status }}</td>
+        <td>{{ $element->title }}</td>
+        <td>{{ $element->description }}</td>
+        <td>{{ $element->event_time }}</td>
+        <td>{{ $element->status }}</td>
         <td>
-          <a href="{{ route('admin.events.edit', $event->id) }}"
+          <a href="{{ route('admin.events.edit', $element->id) }}"
             class="btn btn-info">Edit</a>
-          <form action="{{ route('admin.events.destroy', $event->id) }}"
+          <form action="{{ route('admin.events.destroy', $element->id) }}"
             method="POST" style="display:inline-block;">
             @csrf
             @method('DELETE')

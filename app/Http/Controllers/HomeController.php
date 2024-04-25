@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\Slide;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('homepage');
+        $slides = Slide::orderBy('serial', 'ASC')->get();
+        $events = Event::orderBy('id', 'DESC')->where('status', 'active')->offset(0)->limit(3)->get();
+        return view('homepage', compact('slides', 'events'));
     }
     
     public function events()
