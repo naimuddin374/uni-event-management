@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-xl-12">
         <div class="bradcam_text">
-          <h3>Recent Events</h3>
+          <h3>Recent Blogs</h3>
         </div>
       </div>
     </div>
@@ -17,34 +17,25 @@
 <div class="popular_program_area mt-5">
   <div class="container">
     <div class="row">
-      @foreach($events as $element)
+      @foreach($blogs as $element)
       <div class="col-lg-4 col-md-6">
         <div class="single__program">
           <div class="program_thumb">
             @if($element->image)
-            <img src="{{ asset($element->image) }}" alt='event' />
+            <img src="{{ asset($element->image) }}" alt='blog' />
             @else
-            <img src="{{ asset('img/placeholder.png') }}" alt='event' />
+            <img src="{{ asset('img/placeholder.png') }}" alt='blog' />
             @endif
           </div>
           <div class="program__content">
             <span>{{ $element->location; }}</span>
             <h4>{{ $element->title }}</h4>
-            <p>{{ substr($element->description, 0, 100) }}</p>
-            <a href="{{ url('/events/'.$element->id) }}" class="boxed-btn5">Show
+            <a href="{{ url('/blogs/'.$element->id) }}" class="boxed-btn5">Show
               Details</a>
           </div>
         </div>
       </div>
       @endforeach
-
-      <!-- <div class="row">
-      <div class="col-lg-12">
-        <div class="course_all_btn text-center">
-          <a href="Courses.html" class="boxed-btn4">View All course</a>
-        </div>
-      </div>
-    </div> -->
     </div>
   </div>
   <!-- popular_program_area_end -->

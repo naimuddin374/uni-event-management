@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container my-4">
-  <h1>Add New Event</h1>
+  <h1>Add New</h1>
   <form action="{{ route('admin.events.store') }}" method="POST"
     enctype="multipart/form-data">
     @csrf

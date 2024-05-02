@@ -3,38 +3,40 @@
 @section('content')
 <div class="container">
   <div class="py-4 d-flex align-items-center justify-content-between">
-    <h1>Slide List</h1>
-    <a href="{{ route('admin.slides.create') }}" class="btn btn-primary mb-3">Add New</a>
+    <h1>Blogs List</h1>
+    <a href="{{ route('admin.blogs.create') }}" class="btn btn-primary mb-3">Add New</a>
   </div>
   <table class="table">
     <thead>
       <tr>
-        <th>Serial</th>
+        <th>ID</th>
         <th>Image</th>
         <th>Title</th>
-        <th>Action URL</th>
+        <th>Description</th>
+        <th>Status</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      @foreach($slides as $element)
+      @foreach($blogs as $element)
       <tr>
-        <td>{{ $element->serial }}</td>
+        <td>#{{ $element->id }}</td>
         <td>
           @if($element->image)
-          <img src="{{ asset($element->image) }}" alt='element' height="80"
+          <img src="{{ asset($element->image) }}" alt='blog' height="80"
             weight="80" />
           @else
-          <img src="{{ asset('img/placeholder.png') }}" alt='element'
-            height="80" weight="80" />
+          <img src="{{ asset('img/placeholder.png') }}" alt='blog' height="80"
+            weight="80" />
           @endif
         </td>
         <td>{{ $element->title }}</td>
-        <td>{{ $element->url }}</td>
+        <td>{{ $element->description }}</td>
+        <td>{{ $element->status }}</td>
         <td>
-          <a href="{{ route('admin.slides.edit', $element->id) }}"
+          <a href="{{ route('admin.blogs.edit', $element->id) }}"
             class="btn btn-info">Edit</a>
-          <form action="{{ route('admin.slides.destroy', $element->id) }}"
+          <form action="{{ route('admin.blogs.destroy', $element->id) }}"
             method="POST" style="display:inline-block;">
             @csrf
             @method('DELETE')

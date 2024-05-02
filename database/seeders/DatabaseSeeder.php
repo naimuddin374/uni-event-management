@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
         // Correctly calling another seeder class
         $this->call([
             UsersTableSeeder::class,
-            EventTableSeeder::class
+            EventTableSeeder::class,
+            BlogTableSeeder::class
         ]);
     }
 }

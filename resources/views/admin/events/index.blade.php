@@ -4,9 +4,7 @@
 <div class="container">
   <div class="py-4 d-flex align-items-center justify-content-between">
     <h1>Events List</h1>
-    <a href="{{ route('admin.events.create') }}"
-      class="btn btn-primary mb-3">Add
-      New Event</a>
+    <a href="{{ route('admin.events.create') }}" class="btn btn-primary mb-3">Add New</a>
   </div>
   <table class="table">
     <thead>

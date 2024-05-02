@@ -57,6 +57,8 @@
                       </li>
                       <li><a href="{{ url('/admin/slides') }}">Manage Slider</a>
                       </li>
+                      <li><a href="{{ url('/admin/blogs') }}">Manage Blogs</a>
+                      </li>
                       @endif
                     </ul>
                   </nav>

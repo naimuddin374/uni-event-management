@@ -16,15 +16,7 @@ class EventTableSeeder extends Seeder
     {
         // Create 50 event records
         Event::factory()->count(50)->create();
-
-        // Event::create([
-        //     'title' => Str::random(80),
-        //     'description' => Str::random(200),
-        //     'location' => "Main Campus",
-        //     'event_time' => NOW(),
-        //     'status' => "active",
-        // ]);
-
+       
         // To output information in a seeder, you would typically log this or handle it differently.
         echo "Event table seeded successfully!\n";
     }

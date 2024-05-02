@@ -15,20 +15,9 @@ class EventController extends Controller
         return view('admin.events.index', compact('events'));
     }
 
-    public function show(Event $event)
-    {
-        return view('events.show', compact('event'));
-    }
-
     public function create()
     {
         return view('admin.events.create');
-    }
-
-    public function adminIndex()
-    {
-        $events = Event::all();
-        return view('admin.events.index', compact('events'));
     }
 
     /**
@@ -51,6 +40,7 @@ class EventController extends Controller
             'event_time' => 'required|date',
             'image' => 'image|mimes:png,jpg,jpeg|max:5000',
             'status' => 'required|in:active,inactive',
+            'location' => 'string|max:255',
         ]);
         
         if ($request->hasFile('image')) {
@@ -59,7 +49,8 @@ class EventController extends Controller
             $data['image'] = 'img/events/'.$imageName;
         }
         Event::create($data);
-        return redirect('/admin/events');
+        return redirect()->route('admin.events.index') // Redirect to the events index page
+        ->with('success', 'Record created successfully'); // Optional: flash a success message to the session
     }
 
 
@@ -79,6 +70,7 @@ class EventController extends Controller
             'event_time' => 'required|date',
             'status' => 'required|in:active,inactive',
             'image' => 'image|mimes:png,jpg,jpeg|max:5000', // Validate image separately
+            'location' => 'string|max:255',
         ]);
 
         $event = Event::findOrFail($id); // Find the event or fail with a 404 error
@@ -98,7 +90,7 @@ class EventController extends Controller
         $event->update($data);
 
         return redirect()->route('admin.events.index') // Redirect to the events index page
-        ->with('success', 'Event updated successfully'); // Optional: flash a success message to the session
+        ->with('success', 'Record updated successfully'); // Optional: flash a success message to the session
     }
 
     /**
@@ -109,16 +101,16 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        $event = Event::findOrFail($id);  // Find the event or throw a 404 error if not found
+        $data = Event::findOrFail($id);  
         
-        if ($event->image) {
-            File::delete(public_path($event->image));
+        if ($data->image) {
+            File::delete(public_path($data->image));
         }
         
-        $event->delete();  // Delete the event
+        $data->delete(); 
 
-        return redirect()->route('admin.events.index')  // Redirect to the list of events
-            ->with('success', 'Event deleted successfully');  // Flash a success message to the session
+        return redirect()->route('admin.events.index')  
+            ->with('success', 'Record deleted successfully'); 
     }
 
 }
