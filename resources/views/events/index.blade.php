@@ -45,6 +45,13 @@
         </div>
       </div>
     </div> -->
+
+    </div>
+    <!-- Add pagination here -->
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        {{ $events->links('vendor.pagination.bootstrap-4') }}
+      </div>
     </div>
   </div>
   <!-- popular_program_area_end -->

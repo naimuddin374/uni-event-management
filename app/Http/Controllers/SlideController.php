@@ -38,7 +38,7 @@ class SlideController extends Controller
             'title' => 'required|string|max:255',
             'serial' => 'required|integer',
             'url' => 'string|nullable',
-            'image' => 'required|image|mimes:png,jpg,jpeg|max:15000',
+            'image' => 'required|image|mimes:png,jpg,jpeg,webp|max:15000',
         ]);
         
         if ($request->hasFile('image')) {
@@ -65,7 +65,7 @@ class SlideController extends Controller
             'title' => 'required|string|max:255',
             'serial' => 'required|integer',
             'url' => 'string|nullable',
-            'image' => 'image|mimes:png,jpg,jpeg|max:15000',
+            'image' => 'image|mimes:png,jpg,jpeg,webp|max:15000',
         ]);
 
         $element = Slide::findOrFail($id); // Find the element or fail with a 404 error

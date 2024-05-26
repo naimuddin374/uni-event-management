@@ -17,11 +17,17 @@
 <!-- Start Sample Area -->
 <section class="sample-text-area">
   <div class="container box_1170">
-    <h3 class="text-heading">Mission of your Club</h3>
+    <h3 class="text-heading">Mission</h3>
     <p class="sample-text">
       The mission of our club is to equip members with the skills to address
       modern challenges through cutting-edge solutions that prioritize real-life
       impact.
+    </p>
+  </div>
+  <div class="container box_1170 mt-5">
+    <h3 class="text-heading">Vision</h3>
+    <p class="sample-text">
+    Our vision is to cultivate a community of forward-thinkers, driving technological advancements aligned with sustainable practices.
     </p>
   </div>
 </section>

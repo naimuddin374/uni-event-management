@@ -59,28 +59,28 @@
             <ul>
               <li><a href="{{url('/')}}">Home</a></li>
               <li><a href="{{url('/about')}}">About Us</a></li>
+              <li><a href="{{url('/mission')}}">Mission & Vision</a></li>
             </ul>
           </div>
         </div>
         <div class="col-xl-3 col-md-6 col-lg-3">
           <div class="footer_widget">
             <h3 class="footer_title">
-              Our Events
+              Our Activities
             </h3>
             <ul>
               <li><a href="{{url('/events')}}">Recent Events</a></li>
-              <li><a href="{{url('/')}}">News</a></li>
+              <li><a href="{{url('/blogs')}}">Blog</a></li>
             </ul>
           </div>
         </div>
         <div class="col-xl-3 col-md-6 col-lg-3">
           <div class="footer_widget">
             <h3 class="footer_title">
-              Mission & Vision
+             Others
             </h3>
             <ul>
-              <li><a href="{{url('/mission')}}">Mission</a></li>
-              <li><a href="{{url('/vision')}}">Vision</a></li>
+              <li><a href="{{url('/')}}">Home</a></li>
             </ul>
           </div>
         </div>

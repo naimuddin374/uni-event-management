@@ -6,6 +6,19 @@
   <form action="{{ route('admin.events.update', $event->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
+
+    @if($errors->any())
+      <div class="alert alert-danger">
+          <p><strong>Opps Something went wrong</strong></p>
+          <ul>
+          @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+          </ul>
+      </div>
+    @endif 
+    
+    
     <div class="form-group">
       <label for="title">Title:</label>
       <input type="text" class="form-control" id="title" name="title"

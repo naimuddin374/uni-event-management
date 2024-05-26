@@ -37,6 +37,15 @@
       </div>
       @endforeach
     </div>
+
+
+    <!-- Add pagination here -->
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        {{ $blogs->links('vendor.pagination.bootstrap-4') }}
+      </div>
+    </div>
+
   </div>
   <!-- popular_program_area_end -->
   @endsection

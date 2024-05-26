@@ -35,7 +35,7 @@ class BlogController extends Controller
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required',
-            'image' => 'image|mimes:png,jpg,jpeg|max:5000',
+            'image' => 'image|mimes:png,jpg,jpeg,webp|max:5000',
             'status' => 'required|in:active,inactive',
             'author' => Auth::user()->id,
         ]);
@@ -52,7 +52,7 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Blog $blog)
+    public function edit($id)
     {
         $blog = Blog::findOrFail($id);  // Find the data or fail with a 404 error
         return view('admin.blogs.edit', compact('blog'));  // Return the edit view with the data
@@ -61,14 +61,14 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, $id)
     {
         // Validate input data, excluding image for initial validation
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required',
             'status' => 'required|in:active,inactive',
-            'image' => 'image|mimes:png,jpg,jpeg|max:5000', 
+            'image' => 'image|mimes:png,jpg,jpeg,webp|max:5000', 
         ]);
 
         $blog = Blog::findOrFail($id); // Find the blog or fail with a 404 error

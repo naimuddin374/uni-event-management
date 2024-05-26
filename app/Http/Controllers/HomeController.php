@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\Slide;
 use App\Models\Blog;
+use App\Models\Member;
 
 class HomeController extends Controller
 {
@@ -19,7 +20,7 @@ class HomeController extends Controller
     
     public function events()
     {
-        $events = Event::orderBy('id', 'DESC')->where('status', 'active')->get();
+        $events = Event::orderBy('id', 'DESC')->where('status', 'active')->paginate(9);
         return view('events.index', compact('events'));
     }
     
@@ -31,7 +32,7 @@ class HomeController extends Controller
     
     public function blogs()
     {
-        $blogs = Blog::orderBy('id', 'DESC')->where('status', 'active')->get();
+        $blogs = Blog::orderBy('id', 'DESC')->where('status', 'active')->paginate(9);
         return view('blogs.index', compact('blogs'));
     }
     
@@ -40,5 +41,13 @@ class HomeController extends Controller
         $blog = Blog::findOrFail($id);  
         return view('blogs.details', compact('blog'));  
     }
+
+      
+    public function members()
+    {
+        $membersByType = Member::orderBy('id', 'DESC')->get()->groupBy('member_type');
+        return view('members.index', compact('membersByType'));
+    }
+    
 
 }

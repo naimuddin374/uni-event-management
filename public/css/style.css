@@ -6846,3 +6846,27 @@ h6 {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/* Center the pagination and add bottom margin */
+.pagination {
+    margin-bottom: 3rem; /* Add bottom margin */
+}
+
+/* Member */
+h2.member-type {
+    font-weight: bold;
+    margin: 20px 0;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+.member_content p {
+    margin: 5px 0 !important;
+}
+.member-image img {
+    width: 150px;
+    height: auto;
+}
+.member_info p {
+    margin: 0;
+    padding: 0;
+}

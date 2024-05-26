@@ -38,7 +38,7 @@ class EventController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required',
             'event_time' => 'required|date',
-            'image' => 'image|mimes:png,jpg,jpeg|max:5000',
+            'image' => 'image|mimes:png,jpg,jpeg,webp|max:5000',
             'status' => 'required|in:active,inactive',
             'location' => 'string|max:255',
         ]);
@@ -69,7 +69,7 @@ class EventController extends Controller
             'description' => 'required',
             'event_time' => 'required|date',
             'status' => 'required|in:active,inactive',
-            'image' => 'image|mimes:png,jpg,jpeg|max:5000', // Validate image separately
+            'image' => 'image|mimes:png,jpg,jpeg,webp|max:5000', // Validate image separately
             'location' => 'string|max:255',
         ]);
 

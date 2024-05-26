@@ -5,50 +5,8 @@
 @include('slider')
 <!-- slider_area_end -->
 
-<!-- service_area_start  -->
-<div class="service_area gray_bg">
-  <div class="container">
-    <div class="row justify-content-center ">
-      <div class="col-lg-4 col-md-6">
-        <div class="single_service d-flex align-items-center ">
-          <div class="icon">
-            <i class="flaticon-school"></i>
-          </div>
-          <div class="service_info">
-            <h4>Scholarship</h4>
-            <p>Available</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="single_service d-flex align-items-center ">
-          <div class="icon">
-            <i class="flaticon-error"></i>
-          </div>
-          <div class="service_info">
-            <h4>Scholarship</h4>
-            <p>Available</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="single_service d-flex align-items-center ">
-          <div class="icon">
-            <i class="flaticon-book"></i>
-          </div>
-          <div class="service_info">
-            <h4>Scholarship</h4>
-            <p>Available</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!--/ service_area_start  -->
-
 <!-- popular_program_area_start  -->
-<div class="popular_program_area">
+<div class="popular_program_area mt-5">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
@@ -80,34 +38,6 @@
           </div>
         </div>
         @endforeach
-        <!-- <div class="col-lg-4 col-md-6">
-          <div class="single__program">
-            <div class="program_thumb">
-              <img src="img/program/2.png" alt="">
-            </div>
-            <div class="program__content">
-              <span>Agriculture</span>
-              <h4>Mechanical engneering</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt ut</p>
-              <a href="#" class="boxed-btn5">Apply NOw</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <div class="single__program">
-            <div class="program_thumb">
-              <img src="img/program/3.png" alt="">
-            </div>
-            <div class="program__content">
-              <span>Agriculture</span>
-              <h4>Bio engneering</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt ut</p>
-              <a href="#" class="boxed-btn5">Apply NOw</a>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
   </div>

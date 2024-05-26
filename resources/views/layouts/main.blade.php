@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="{{ asset('css/gijgo.css') }}">
   <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
   <link rel="stylesheet" href="{{ asset('css/slicknav.css') }}">
+  
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>

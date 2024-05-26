@@ -6,6 +6,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\MemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     'events' => EventController::class,
     'slides' => SlideController::class,
     'blogs' => BlogController::class,
+    'members' => MemberController::class,
 ];
 
     foreach($routeArr as $key => $controller) {
@@ -46,15 +48,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::put('/admin/'.$key.'/{'.$key.'}', [$controller, 'update'])->name('admin.'.$key.'.update');
         Route::delete('/admin/'.$key.'/{'.$key.'}', [$controller, 'destroy'])->name('admin.'.$key.'.destroy');
     }
-
-    // EVENTS ROUTE
-    // Route::get('/admin/events', [EventController::class, 'index'])->name('admin.events.index');
-    // Route::get('/admin/events/create', [EventController::class, 'create'])->name('admin.events.create');
-    // Route::post('/admin/events', [EventController::class, 'store'])->name('admin.events.store');
-    // Route::get('/admin/events/{event}/edit', [EventController::class, 'edit'])->name('admin.events.edit');
-    // Route::put('/admin/events/{event}', [EventController::class, 'update'])->name('admin.events.update');
-    // Route::delete('/admin/events/{event}', [EventController::class, 'destroy'])->name('admin.events.destroy');
-
 });
 
 // You need to create and configure the AdminMiddleware as previously described
@@ -63,7 +56,7 @@ Route::get('/events', [HomeController::class, 'events'])->name('events');
 Route::get('/events/{event}', [HomeController::class, 'eventDetail'])->name('events.detail');
 Route::get('/blogs', [HomeController::class, 'blogs'])->name('blogs');
 Route::get('/blogs/{blog}', [HomeController::class, 'blogDetail'])->name('blogs.detail');
+Route::get('/members', [HomeController::class, 'members'])->name('members');
 Route::get('/contact', function (){ return view('contact'); })->name('contact');
 Route::get('/mission', function (){ return view('mission'); })->name('mission');
-Route::get('/vision', function (){ return view('vision'); })->name('vision');
 Route::get('/about', function (){ return view('about'); })->name('about');

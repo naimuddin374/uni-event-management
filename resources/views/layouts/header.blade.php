@@ -46,12 +46,11 @@
                 <div class="main-menu  d-none d-lg-block">
                   <nav>
                     <ul id="navigation">
-                      <li><a href="{{ url('/') }}">home</a></li>
-                      <li><a href="{{ url('/events') }}">Events</a></li>
+                      <li><a href="{{ url('/') }}">Home</a></li>
                       <li><a href="{{ url('/about') }}">About</a></li>
-                      <li><a href="{{ url('/mission') }}">mission</a></li>
-                      <li><a href="{{ url('/vision') }}">Vision</a></li>
-                      <li><a href="{{ url('/contact') }}">Contact</a></li>
+                      <li><a href="{{ url('/events') }}">Events</a></li>
+                      <li><a href="{{ url('/blogs') }}">Blogs</a></li>
+                      <li><a href="{{ url('/members') }}">Members</a></li>
                       @if(Auth::check())
                       <li><a href="{{ url('/admin/events') }}">Manage Event</a>
                       </li>
@@ -59,6 +58,8 @@
                       </li>
                       <li><a href="{{ url('/admin/blogs') }}">Manage Blogs</a>
                       </li>
+                      <li><a href="{{ url('/admin/members') }}">Manage
+                          Members</a></li>
                       @endif
                     </ul>
                   </nav>
