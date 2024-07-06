@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3.9"
 
 services:
     app:
@@ -15,7 +15,7 @@ services:
             - app-network
         depends_on:
             - mysql
-        command: sh -c "./wait-for-it.sh mysql:3306 --timeout=60 --strict -- composer install && php artisan migrate --force && php artisan db:seed --force && php-fpm"
+        command: sh -c "./wait-for-it.sh mysql:3306 --timeout=60 --strict -- composer install && php artisan key:generate && php artisan migrate --force && php artisan db:seed --force && php-fpm"
 
     webserver:
         image: nginx:alpine
@@ -38,8 +38,6 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: pass1234
             MYSQL_DATABASE: uni_event_management
-            MYSQL_USER: root
-            MYSQL_PASSWORD: pass1234
         volumes:
             - dbdata:/var/lib/mysql
         networks:
@@ -47,11 +45,11 @@ services:
 
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
+        platform: linux/amd64
         container_name: uni_event_management_phpmyadmin
         restart: unless-stopped
         environment:
             PMA_HOST: mysql
-            MYSQL_ROOT_USER: root
             MYSQL_ROOT_PASSWORD: pass1234
         ports:
             - "8080:80"

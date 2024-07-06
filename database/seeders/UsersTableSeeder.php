@@ -13,13 +13,18 @@ class UsersTableSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
-            'name' => 'Admin User',
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt('pass1234'),
-        ]);
+        // Check if the user already exists
+        $user = User::where('email', 'admin@gmail.com')->first();
 
-        // To output information in a seeder, you would typically log this or handle it differently.
-        echo "User table seeded successfully!\n";
+        if (!$user) {
+            User::create([
+                'name' => 'Admin User',
+                'email' => 'admin@gmail.com',
+                'password' => bcrypt('pass1234'),
+            ]);
+            echo "User table seeded successfully!\n";
+        } else {
+            echo "User with email admin@gmail.com already exists. Skipping insertion.\n";
+        }
     }
 }
