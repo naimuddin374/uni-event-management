@@ -113,7 +113,7 @@
             </script> All rights reserved | This website develop with <i
               class="ti-heart" aria-hidden="true"></i> by <a
               href="https://www.fiu.edu.bd" target="_blank"
-              style="color:#2d4a7c">FIU</a>
+              style="color:#2d4a7c">CSE, FIU</a>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </p>
           </p>
