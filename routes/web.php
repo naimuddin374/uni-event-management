@@ -7,6 +7,9 @@ use App\Http\Controllers\SlideController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\SouvenirController;
+use Illuminate\Support\Facades\DB;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +41,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     'slides' => SlideController::class,
     'blogs' => BlogController::class,
     'members' => MemberController::class,
+    'souvenirs' => SouvenirController::class,
 ];
 
     foreach($routeArr as $key => $controller) {
@@ -57,6 +61,15 @@ Route::get('/events/{event}', [HomeController::class, 'eventDetail'])->name('eve
 Route::get('/blogs', [HomeController::class, 'blogs'])->name('blogs');
 Route::get('/blogs/{blog}', [HomeController::class, 'blogDetail'])->name('blogs.detail');
 Route::get('/members', [HomeController::class, 'members'])->name('members');
+Route::get('/souvenirs', [HomeController::class, 'souvenirs'])->name('souvenirs');
 Route::get('/contact', function (){ return view('contact'); })->name('contact');
 Route::get('/mission', function (){ return view('mission'); })->name('mission');
 Route::get('/about', function (){ return view('about'); })->name('about');
+Route::get('/check-db', function () {
+    try {
+        DB::connection()->getPdo();
+        return 'Database connection is OK.';
+    } catch (\Exception $e) {
+        return 'Could not connect to the database. Please check your configuration. Error: ' . $e->getMessage();
+    }
+});

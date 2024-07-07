@@ -71,13 +71,14 @@
             <ul>
               <li><a href="{{url('/events')}}">Recent Events</a></li>
               <li><a href="{{url('/blogs')}}">Blog</a></li>
+              <li><a href="{{url('/souvenirs')}}">Souvenirs</a></li>
             </ul>
           </div>
         </div>
         <div class="col-xl-3 col-md-6 col-lg-3">
           <div class="footer_widget">
             <h3 class="footer_title">
-             Others
+              Others
             </h3>
             <ul>
               <li><a href="{{url('/')}}">Home</a></li>

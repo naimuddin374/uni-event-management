@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="{{ asset('css/gijgo.css') }}">
   <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
   <link rel="stylesheet" href="{{ asset('css/slicknav.css') }}">
-  
+
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <!-- <link rel="stylesheet" href="css/responsive.css"> -->
 </head>
@@ -61,6 +61,16 @@
   <script src="{{ asset('js/mail-script.js') }}"></script>
 
   <script src="{{ asset('js/main.js') }}"></script>
+
+  <script>
+    $(document).ready(function(){
+        $('.collapse').collapse();
+        $('.collapsible').on('click', function(){
+            $(this).next('.collapse').collapse('toggle');
+        });
+    });
+</script>
+
 
 </body>
 

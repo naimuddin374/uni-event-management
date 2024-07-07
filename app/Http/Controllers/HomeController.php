@@ -7,6 +7,7 @@ use App\Models\Event;
 use App\Models\Slide;
 use App\Models\Blog;
 use App\Models\Member;
+use App\Models\Souvenir;
 
 class HomeController extends Controller
 {
@@ -47,6 +48,14 @@ class HomeController extends Controller
     {
         $membersByType = Member::orderBy('id', 'DESC')->get()->groupBy('member_type');
         return view('members.index', compact('membersByType'));
+    }
+    
+      
+    public function souvenirs()
+    {
+        $souvenirs = Souvenir::all();
+        // $souvenirs = Souvenir::orderBy('id', 'DESC');
+        return view('souvenirs', compact('souvenirs'));
     }
     
 

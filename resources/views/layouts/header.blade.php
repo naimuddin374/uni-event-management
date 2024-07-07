@@ -60,6 +60,8 @@
                       </li>
                       <li><a href="{{ url('/admin/members') }}">Manage
                           Members</a></li>
+                      <li><a href="{{ url('/admin/souvenirs') }}">Manage
+                          Souvenir</a></li>
                       @endif
                     </ul>
                   </nav>
